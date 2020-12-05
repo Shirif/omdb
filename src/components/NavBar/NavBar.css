@@ -1,0 +1,29 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: #000000;
+    color: #d3d3d3;
+    padding: 5px;
+    box-shadow: 0 50px 20px #000000d5;
+}
+
+.nav h1 {
+    font-weight: 300;
+    margin: 0;
+    padding: 0 10px;   
+}
+
+.search {
+    padding-right: 10px;
+}
+.search input {
+    font-size: 25px;
+    margin: 5px;
+}
+
+.search-icon {
+    cursor: pointer;
+    margin-left: 10px ;
+}

@@ -1,0 +1,31 @@
+.description-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #000000;
+  padding: 5px;
+  color: #d3d3d3;
+  font-weight: 300;
+  margin: 90px 0;
+  box-shadow: 0 -50px 20px #000000d5, 0 50px 20px #000000d5;
+}
+.description {
+  font-size: 1.2rem;
+}
+.description h1 {
+  font-size: 4rem;
+  font-weight: 300;
+  text-align: center;
+}
+.description p {
+  padding-left: 25px;
+}
+.description b {
+  font-weight: 500;
+}
+
+.poster-img img {
+  width: 320px;
+  mask-image: linear-gradient(to right, transparent 1%, black 30%);
+}
