@@ -18,12 +18,16 @@
 .search {
     padding-right: 10px;
 }
+
 .search input {
     font-size: 25px;
     margin: 5px;
 }
 
-.search-icon {
+.search button {
     cursor: pointer;
-    margin-left: 10px ;
+    font-size: 22px;
+    background-color: #000000;
+    color: #d3d3d3;
+    border: none;
 }
