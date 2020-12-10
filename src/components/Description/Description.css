@@ -11,18 +11,22 @@
   box-shadow: 0 -50px 20px #000000d5, 0 50px 20px #000000d5;
 }
 .description {
-  font-size: 1.2rem;
+  font-size: 0.8em;
+  padding: 25px 0;
 }
 .description h1 {
-  font-size: 4rem;
+  margin: 0;
+  font-size: 3em;
   font-weight: 300;
   text-align: center;
 }
 .description p {
-  padding-left: 25px;
+  padding-left: 5px;
+  margin: 0.4em;
+
 }
 .description b {
-  font-weight: 500;
+  color: #757575;
 }
 
 .poster-img img {
