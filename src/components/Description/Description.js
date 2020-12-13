@@ -1,6 +1,9 @@
+import noImg from "../Pictures/no_image_available.png";
 import "./Description.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowClose as close } from "@fortawesome/free-regular-svg-icons";
 
-const Description = ({ movie }) => {
+const Description = ({ movie, prevState }) => {
   const elementTitle = movie.Error ? <h1>{movie.Error}</h1> : <h1>{movie.Title}</h1>;
   const elementDiscription = Object.keys(movie).map((mov) => {
     if (
@@ -28,12 +31,13 @@ const Description = ({ movie }) => {
   return (
     <div className="description-container">
       <div className="description">
+      {movie.Year && <FontAwesomeIcon onClick={prevState} className="close-icon" size="2x" icon={close} />}
         {elementTitle}
         {elementDiscription}
       </div>
-      <div className="poster-img">
-        <img src={movie.Poster} alt=""></img>
-      </div>
+      { movie.Poster && <div className="poster-img">
+      <img src={movie.Poster !== "N/A" ? movie.Poster : noImg} alt=""></img>
+      </div>}
     </div>
   );
   // }

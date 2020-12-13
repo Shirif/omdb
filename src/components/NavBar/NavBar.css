@@ -7,6 +7,13 @@
     color: #d3d3d3;
     padding: 5px;
     box-shadow: 0 50px 20px #000000d5;
+    border: none;
+    
+}
+
+.nav button, input{
+    border: none;
+    font-size: 24px;
 }
 
 .nav h1 {
@@ -15,21 +22,29 @@
     padding: 0 10px;   
 }
 
+.favorite-button {
+    cursor: pointer;
+    background-color: #304234;
+    margin: 5px;
+    color: #d3d3d3;
+}
+
+.favorite-button:hover {
+    color: #000000;
+    background-color:#3fff05;
+}
+
 .search {
     padding-right: 10px;
 }
 
 .search input {
-    font-size: 25px;
     margin: 5px;
     background-color: #d3d3d3;
-    border: none;
 }
 
 .search button {
     cursor: pointer;
-    font-size: 22px;
     background-color: #000000;
     color: #d3d3d3;
-    border: none;
 }

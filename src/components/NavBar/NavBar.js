@@ -4,10 +4,11 @@ import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-const NavBar = ({getData}) => {
+const NavBar = ({ getData, getAllData }) => {
   const initialState = {
     title: "",
     year: "",
+    page: "1",
   };
   const [inputData, setInputData] = useState(initialState);
   const onChangeHandler = (e) => {
@@ -19,16 +20,24 @@ const NavBar = ({getData}) => {
     });
   };
 
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   getData(inputData);
+  //   setInputData(initialState);
+  // };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    getData(inputData);
+    getAllData(inputData);
     setInputData(initialState);
   };
-
 
   return (
     <div className="nav">
       <h1>OMDb</h1>
+      <div>
+        <button type="button" className="favorite-button">Favotite</button>
+      </div>
       <form onSubmit={submitHandler}>
         <div className="search">
           <input
