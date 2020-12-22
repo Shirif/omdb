@@ -1,27 +1,21 @@
-import React, { Component, useState } from "react";
-
-import "./ListMovies.css";
-import noImg from "../Pictures/no_image_available.png";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare as like } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare as dislike } from "@fortawesome/free-regular-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { addFavoriteMovies, removeFavoriteMovies, changeMovie } from "../../store/actionCreators/action";
 
-const ListMovies = ({ movie, getData }) => {
-  const initialState = [
-    {
-      Title: "The Matrix Reloaded",
-      Year: "2003",
-      imdbID: "tt0234215",
-      Poster:
-        "https://m.media-amazon.com/images/M/MV5BODE0MzZhZTgtYzkwYi00YmI5LThlZWYtOWRmNWE5ODk0NzMxXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
-    },
-  ];
+import "./ListMovies.css";
+import noImg from "../Pictures/no_image_available.png";
 
-  const [myFavoritMovies, setMyFavoritMovies] = useState(initialState);
+const ListMovies = () => {
+  const dispatch = useDispatch({});
+  const favorite = useSelector((state) => state.app.favorite);
+  const myFavoritMovies = useSelector((state) => state.movies.myFavoritMovies);
+  const movies = useSelector(state => state.movies.fetchMovies.Search)
+  const movList = favorite ? myFavoritMovies : movies;
 
   const onChangeMyFavoritMovies = (e) => {
-    // console.log(e);
-
     let id;
     const elem = e.target.parentNode;
     if (elem.parentNode.className === "list-element") {
@@ -32,24 +26,17 @@ const ListMovies = ({ movie, getData }) => {
     if (id) {
       const index = myFavoritMovies.findIndex((item) => item.imdbID === id);
       if (index !== -1) {
-        setMyFavoritMovies((prev) => {
-          console.log(prev);
-          return prev.filter((item) => item.imdbID !== id);
-        });
+        dispatch(removeFavoriteMovies(id));
       } else {
-        const arr = movie.Search.find((item) => item.imdbID === id);
-        setMyFavoritMovies((prev) => {
-          console.log(prev);
-          return [...prev, arr];
-        });
+        const arr = movList.find((item) => item.imdbID === id);
+        dispatch(addFavoriteMovies(arr));
       }
     } else {
-      console.log("elem", elem.id);
-      getData(elem.id);
+      dispatch(changeMovie(elem.id));
     }
   };
 
-  const elementDiscription = movie.Search.map((mov) => {
+  const elementDiscription = movList.map((mov) => {
     return (
       <div key={mov.imdbID} id={mov.imdbID} onClick={onChangeMyFavoritMovies} className="list-element">
         <div className="title-element">
@@ -66,16 +53,7 @@ const ListMovies = ({ movie, getData }) => {
     );
   });
 
-  // console.log(movie);
-
-  //   const dataList = JSON.stringify(movie, null, 2);
-
-  return (
-    <div className="list-movies">
-      {/* <pre>{dataList}</pre> */}
-      {elementDiscription}
-    </div>
-  );
+  return <div className="list-movies">{elementDiscription}</div>;
   // }
 };
 

@@ -1,48 +1,25 @@
-import React, { useEffect, useState, useRef } from "react";
-import ServiceApi from "../ServiceApi";
+import { useSelector } from "react-redux";
 import NavBar from "../NavBar";
 import Description from "../Description";
 import Spinner from "../Spinner";
 import ListMovies from "../ListMovies";
+import Pagination from "../Pagination";
 
 import "./App.css";
 
 const App = () => {
-  const initialState = {
-    Title: "Search movie!",
-    // Poster: " ",
-    // Search : []
-  };
-  const [spinner, setSpinner] = useState(false);
-  const [movie, setMovie] = useState(initialState);
-  const prevMovie = useRef("");
-
-  useEffect(() => {
-  }, [movie]);
-
-  const getData = async (id) => {
-    setSpinner(true);
-    const movie = await ServiceApi.getMovie(id);
-    setMovie(movie);
-    setSpinner(false);
-  };
-  const getAllData = async ({ title, year, page }) => {
-    setSpinner(true);
-    const movie = await ServiceApi.getListMovies(title, year, page);
-    setMovie(movie);
-    prevMovie.current = movie;
-    setSpinner(false);
-  };
-
-  const prevState = () => {
-    setMovie(prevMovie.current);
-  };
+  const movies = useSelector((state) => state.movies.fetchMovies);
+  const loading = useSelector((state) => state.app.loading);
+  const favorite = useSelector((state) => state.app.favorite);
+  const changeMovie = useSelector((state) => state.movies.changeMovie);
+  const totalResults = useSelector((state) => state.movies.fetchMovies.totalResults);
 
   return (
     <div className="App">
-      <NavBar getData={getData} getAllData={getAllData} />
-      {movie.Search ? <ListMovies movie={movie} getData={getData} /> : <Description movie={movie} prevState={prevState} />}
-      {spinner && <Spinner />}
+      <NavBar />
+      {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />}
+      {loading && <Spinner />}
+      {!favorite && <Pagination totalResults={totalResults} />}
     </div>
   );
 };

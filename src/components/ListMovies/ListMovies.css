@@ -45,6 +45,7 @@ img {
   color: #ffffffa2;
   right: 4px;
   top: 255px;
+  box-shadow: 0 0 20px 2px #000000;
 }
 .like-icon:hover {
   color: #3fff05;
