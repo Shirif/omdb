@@ -5,6 +5,7 @@ import "./Description.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose as close } from "@fortawesome/free-regular-svg-icons";
 
+
 const Description = ({ changeMovie }) => {
   const dispatch = useDispatch({});
 
