@@ -1,23 +1,41 @@
-import React from 'react';
-import App from './App';
-//import {render} from '@testing-library/react'
+import * as reactRedux from "react-redux";
+import React from "react";
+import App from "./App";
 
-// it('render learn react link', () =>{
-//   const {getByText} = render(<App />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// })
-
-const setUp = () => shallow(<App />);
-
-describe('should render App component', () => {
+describe("should render App components", () => {
+  const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
+  const setUp = () => shallow(<App />);
   let component;
   beforeEach(() => {
-    component = setUp();
+    useSelectorMock.mockClear();
   });
 
-  it('should contain NavBar', () => {
-    const wrapper = component.find("div");
-    expect(wrapper.length).toBe(1);
+  const testState = {
+    movies: {
+      myFavoritMovies: [],
+      changeMovie: false,
+      fetchMovies: { Error: "Search movie!" },
+      searchData: {
+        title: "",
+        year: "",
+        page: "",
+      },
+    },
+    app: {
+      loading: false,
+      favorite: false,
+    },
+  };
+  it("should render NavBar, Description, Pagination components", () => {
+    useSelectorMock.mockReturnValue(testState);
+    component = setUp();
+    expect(component).toMatchSnapshot();
+  });
+
+  it("should render Spinner component", () => {
+    useSelectorMock.mockReturnValue({ ...testState, app: {...testState.app, loading: true} });
+
+    component = setUp();
+    expect(component).toMatchSnapshot();
   });
 });

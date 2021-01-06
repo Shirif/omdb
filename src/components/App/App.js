@@ -1,3 +1,4 @@
+import React from 'react';
 import { useSelector } from "react-redux";
 import NavBar from "../NavBar";
 import Description from "../Description";
@@ -8,15 +9,16 @@ import Pagination from "../Pagination";
 import "./App.css";
 
 const App = () => {
-  const movies = useSelector((state) => state.movies.fetchMovies);
-  const loading = useSelector((state) => state.app.loading);
-  const favorite = useSelector((state) => state.app.favorite);
-  const changeMovie = useSelector((state) => state.movies.changeMovie);
-  const totalResults = useSelector((state) => state.movies.fetchMovies.totalResults);
+  const state = useSelector();
+  const movies = state.movies.fetchMovies;
+  const loading = state.app.loading;
+  const favorite = state.app.favorite;
+  const changeMovie = state.movies.changeMovie;
+  const totalResults = state.movies.fetchMovies.totalResults;
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar test={state} />
       {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />}
       {loading && <Spinner />}
       {!favorite && <Pagination totalResults={totalResults} />}

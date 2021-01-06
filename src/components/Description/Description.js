@@ -1,3 +1,4 @@
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { noChangeMovie } from "../../store/actionCreators/action";
 import noImg from "../Pictures/no_image_available.png";

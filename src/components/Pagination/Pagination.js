@@ -5,7 +5,7 @@ import { setPageSearchData, fetchMovies } from "../../store/actionCreators/actio
 import "./Pagination.css";
 
 const Pagination = ({ totalResults }) => {
-  const dispatch = useDispatch({});
+  const dispatch = useDispatch();
   const searchData = useSelector((state) => state.movies.searchData);
   const pageSize = 10;
 
