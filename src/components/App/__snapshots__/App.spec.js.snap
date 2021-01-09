@@ -1,68 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render App components should render NavBar, Description, Pagination components 1`] = `
+exports[`should render App components should render ListMovies component 1`] = `
 <div
   className="App"
 >
-  <NavBar
-    test={
-      Object {
-        "app": Object {
-          "favorite": false,
-          "loading": false,
-        },
-        "movies": Object {
-          "changeMovie": false,
-          "fetchMovies": Object {
-            "Error": "Search movie!",
-          },
-          "myFavoritMovies": Array [],
-          "searchData": Object {
-            "page": "",
-            "title": "",
-            "year": "",
-          },
-        },
-      }
-    }
-  />
-  <Description
-    changeMovie={false}
-  />
+  <NavBar />
+  <ListMovies />
   <Pagination />
 </div>
 `;
 
-exports[`should render App components should render Spinner component 1`] = `
+exports[`should render App components should render NavBar, Description, Pagination components 1`] = `
 <div
   className="App"
 >
-  <NavBar
-    test={
-      Object {
-        "app": Object {
-          "favorite": false,
-          "loading": true,
-        },
-        "movies": Object {
-          "changeMovie": false,
-          "fetchMovies": Object {
-            "Error": "Search movie!",
-          },
-          "myFavoritMovies": Array [],
-          "searchData": Object {
-            "page": "",
-            "title": "",
-            "year": "",
-          },
-        },
-      }
-    }
-  />
+  <NavBar />
   <Description
     changeMovie={false}
   />
-  <Spinner />
   <Pagination />
 </div>
 `;

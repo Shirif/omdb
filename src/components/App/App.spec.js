@@ -32,10 +32,15 @@ describe("should render App components", () => {
     expect(component).toMatchSnapshot();
   });
 
-  it("should render Spinner component", () => {
-    useSelectorMock.mockReturnValue({ ...testState, app: {...testState.app, loading: true} });
-
+  it("should render ListMovies component", () => {
+    useSelectorMock.mockReturnValue({ ...testState, movies: {...testState.movies, fetchMovies:{}} });
     component = setUp();
     expect(component).toMatchSnapshot();
   });
+  it("should render Spinner component", () => {
+    useSelectorMock.mockReturnValue({ ...testState, app: {...testState.app, loading: true} });
+    component = setUp();
+    const wrapper = component.find("Spinner");
+    expect(wrapper.length).toBe(1);
+   });
 });

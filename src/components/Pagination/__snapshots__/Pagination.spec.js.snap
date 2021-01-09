@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Pagination component calls click button 1`] = `
+<li
+  className="active"
+  key="1"
+  onClick={[Function]}
+  searchData={
+    Object {
+      "page": "1",
+    }
+  }
+>
+  1
+</li>
+`;
