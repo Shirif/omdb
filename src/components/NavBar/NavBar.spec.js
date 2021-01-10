@@ -53,7 +53,6 @@ describe("should render NavBar component", () => {
     component = setUp();
      const wrapper = component.find(".favorite-button").simulate("click");
 
-    //console.log(dummyDispatch);
     expect(dummyDispatch).toHaveBeenCalled();
 
   });
