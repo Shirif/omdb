@@ -9,12 +9,11 @@ import Pagination from "../Pagination";
 import "./App.css";
 
 const App = () => {
-  const state = useSelector();
-  const movies = state.movies.fetchMovies;
-  const loading = state.app.loading;
-  const favorite = state.app.favorite;
-  const changeMovie = state.movies.changeMovie;
-  const totalResults = state.movies.fetchMovies.totalResults;
+  const movies = useSelector((state) => state.movies.fetchMovies);
+  const loading = useSelector((state) => state.app.loading);
+  const favorite = useSelector((state) => state.app.favorite);
+  const changeMovie = useSelector((state) => state.movies.changeMovie);
+  const totalResults = useSelector((state) => state.movies.fetchMovies.totalResults);
 
   return (
     <div className="App">
