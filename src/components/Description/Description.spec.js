@@ -14,18 +14,18 @@ describe("should render Description component", () => {
     useDispatchMock.mockClear();
   });
 
-  it("should contain .description-container", () => {
+  it("should contain .container", () => {
     const dummyDispatch = jest.fn();
     useDispatchMock.mockReturnValue(dummyDispatch);
     useSelectorMock.mockReturnValue({});
     component = shallow(<Description changeMovie={{ Title: "" }} />);
-    const wrapper = component.find(".description-container");
+    const wrapper = component.find(".container");
     expect(wrapper.length).toBe(1);
   });
 
   it("should rander noImg", () => {
     component = shallow(<Description changeMovie={{ Poster: "N/A" }} />);
-    const wrapper = component.find(".poster-img");
+    const wrapper = component.find(".poster");
     expect(wrapper.length).toBe(1);
   });
 
@@ -39,7 +39,7 @@ describe("should render Description component", () => {
     useDispatchMock.mockReturnValue(dummyDispatch);
     expect(dummyDispatch).not.toHaveBeenCalled();
     component = setUp();
-    const wrapper = component.find(".close-icon").simulate("click");
+    const wrapper = component.find(".close").simulate("click");
     expect(dummyDispatch).toHaveBeenCalled();
   });
 

@@ -1,4 +1,4 @@
-.description-container {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,13 +30,13 @@
   color: #757575;
 }
 
-.poster-img img {
+.poster img {
   width: 320px;
   height: 470px;
   mask-image: linear-gradient(to right, transparent 1%, black 30%);
 }
 
-.close-icon {
+.close {
   cursor: pointer;
   position: absolute;
   color: #ffffffa2;

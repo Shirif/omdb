@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { noChangeMovie } from "../../store/actionCreators/action";
 import noImg from "../Pictures/no_image_available.png";
-import "./Description.css";
+import s from "./Description.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose as close } from "@fortawesome/free-regular-svg-icons";
 
@@ -42,16 +42,16 @@ const Description = ({ changeMovie }) => {
       })
     : null;
   return (
-    <div className="description-container">
-      <div className="description">
+    <div className={s.container}>
+      <div className={s.description}>
         {changeMovie.Year && (
-          <FontAwesomeIcon onClick={() => dispatch(noChangeMovie())} className="close-icon" size="2x" icon={close} />
+          <FontAwesomeIcon onClick={() => dispatch(noChangeMovie())} className={s.close} size="2x" icon={close} />
         )}
         {elementTitle}
         {elementDiscription}
       </div>
       {changeMovie.Poster && (
-        <div className="poster-img">
+        <div className={s.poster}>
           <img src={changeMovie.Poster !== "N/A" ? changeMovie.Poster : noImg} alt=""></img>
         </div>
       )}

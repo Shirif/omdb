@@ -2,14 +2,14 @@
 
 exports[`should render Description component should rander Year 1`] = `
 <div
-  className="description-container"
+  className="container"
 >
   <div
     className="description"
   >
     <FontAwesomeIcon
       border={false}
-      className="close-icon"
+      className="close"
       fixedWidth={false}
       flip={null}
       icon={
