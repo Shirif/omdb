@@ -10,6 +10,10 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shirif/omdb.git"
+  },
   "jest": {
     "verbose": true,
     "clearMocks": true,
