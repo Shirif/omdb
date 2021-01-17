@@ -14,7 +14,7 @@
   .nav button,
   input {
     border: none;
-    font-size: 1em;
+    font-size: 0.9em;
   }
 }
 @media (max-width: 350px) {
