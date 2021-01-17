@@ -23,7 +23,7 @@ const Pagination = ({ totalResults }) => {
 
   const listElements = pages.map((p) => {
     return (
-      <li searchData={searchData} className={+searchData.page === p ? "active" : ""} key={p} onClick={setCurrentPage}>
+      <li className={+searchData.page === p ? "active" : ""} key={p} onClick={setCurrentPage}>
         {p}
       </li>
     );
