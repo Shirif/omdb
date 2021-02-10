@@ -3,13 +3,12 @@
 } */
 
 .App {
-    min-height: 100vh;
-    /* font-size: calc(4px + 2vmin); */
-    font-size: 1.5em;
-   
-    background-image: url(../Pictures/posters_img.png);
-    background-color: #000000;
-    box-shadow: inset 0px 0px 20px 20px #000000;
-    background-attachment: fixed;
-  }
-  
+  min-height: 100vh;
+  /* font-size: calc(4px + 2vmin); */
+  font-size: 1.5em;
+
+  background-image: url(../Pictures/posters_img.png);
+  background-color: #000000;
+  box-shadow: inset 0px 0px 20px 20px #000000;
+  background-attachment: fixed;
+}

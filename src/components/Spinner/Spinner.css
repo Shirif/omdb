@@ -1,6 +1,10 @@
 @keyframes ldio-gbszwsaxote {
-  0% { transform: translate(-50%,-50%) rotate(0deg); }
-  100% { transform: translate(-50%,-50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 .ldio-gbszwsaxote div {
   /* position: fixed; */
@@ -14,7 +18,7 @@
 .ldio-gbszwsaxote div {
   animation: ldio-gbszwsaxote 1s linear infinite;
   top: 100px;
-  left: 100px
+  left: 100px;
 }
 .loadingio-spinner-rolling-mnev96aggsf {
   width: 200px;
@@ -31,7 +35,9 @@
   backface-visibility: hidden;
   transform-origin: 0 0; /* see note above */
 }
-.ldio-gbszwsaxote div { box-sizing: content-box; }
+.ldio-gbszwsaxote div {
+  box-sizing: content-box;
+}
 
 .spinner {
   position: fixed;

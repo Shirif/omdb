@@ -11,7 +11,7 @@ import {
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
 } from "./actionTypes";
-import ServiceApi from "../../components/ServiceApi";
+import ServiceApi from "../../components/Api/ServiceApi";
 
 export const addFavoriteMovies = (value) => {
   return {
@@ -47,7 +47,7 @@ export const changeMovie = (id) => {
       dispatch({ type: CHANGE_MOVIE, payload: movie });
       dispatch(hideLoader());
     } catch (error) {
-      dispatch(showAlert('Failed to fetch'));
+      dispatch(showAlert("Failed to fetch"));
       dispatch(hideLoader());
     }
   };
@@ -67,7 +67,7 @@ export const fetchMovies = ({ title, year, page }) => {
       dispatch({ type: FETCH_MOVIES, payload: movies });
       dispatch(hideLoader());
     } catch (error) {
-      dispatch(showAlert('Failed to fetch'));
+      dispatch(showAlert("Failed to fetch"));
       console.log(error);
       dispatch(hideLoader());
     }

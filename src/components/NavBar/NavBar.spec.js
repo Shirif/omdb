@@ -37,7 +37,7 @@ describe("should render NavBar component", () => {
   it("calls onchange", () => {
     useSelectorMock.mockReturnValue(false);
     component = setUp();
-       const wrapper = component.find("input").first();
+    const wrapper = component.find("input").first();
     wrapper.simulate("change", {
       target: {
         name: "year",

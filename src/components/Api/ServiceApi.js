@@ -6,14 +6,13 @@ export default class ServiceApi {
   };
 
   static getMovie = async (id) => {
-      const movie = await this.getResources(`i=${id}`);
-       //console.log(this.root + `i=${id}`);
-      return movie;
-  }
+    const movie = await this.getResources(`i=${id}`);
+    //console.log(this.root + `i=${id}`);
+    return movie;
+  };
   static getListMovies = async (title, year, page) => {
-      const movie = await this.getResources(`type=movie&s=${title}&y=${year}&page=${page}`);
-      //console.log(this.root + `s=${title}&y=${year}&page=${page}`);
-      return movie;
-  }
-
+    const movie = await this.getResources(`type=movie&s=${title}&y=${year}&page=${page}`);
+    //console.log(this.root + `s=${title}&y=${year}&page=${page}`);
+    return movie;
+  };
 }

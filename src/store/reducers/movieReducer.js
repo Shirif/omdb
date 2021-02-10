@@ -26,9 +26,9 @@ export const movieReducer = (state = initialState.movieValue, action) => {
     case SEARCH_DATA:
       return { ...state, searchData: action.payload };
     case SET_PAGE_SEARCH_DATA:
-      return { ...state, searchData: {...state.searchData, page: action.payload} };
-      case SHOW_ALERT:
-      return { ...state, fetchMovies: {...state.fetchMovies, Error: action.payload} };
+      return { ...state, searchData: { ...state.searchData, page: action.payload } };
+    case SHOW_ALERT:
+      return { ...state, fetchMovies: { ...state.fetchMovies, Error: action.payload } };
 
     default:
       return state;

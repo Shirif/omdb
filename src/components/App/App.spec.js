@@ -29,8 +29,6 @@ const setUp = () => shallow(<App />);
 let component;
 
 describe("should render App components", () => {
-
-
   it("should render NavBar, Description, Pagination components", () => {
     useSelector.mockImplementation((callback) => {
       return callback(mockAppState);
@@ -55,4 +53,3 @@ describe("should render App components", () => {
     expect(wrapper.length).toBe(1);
   });
 });
-

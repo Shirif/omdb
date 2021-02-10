@@ -1,2 +1,2 @@
-import ListMovies from './ListMovies';
+import ListMovies from "./ListMovies";
 export default ListMovies;

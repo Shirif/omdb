@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useSelector } from "react-redux";
 import NavBar from "../NavBar";
 import Description from "../Description";
@@ -20,7 +20,7 @@ const App = () => {
       <NavBar />
       {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />}
       {loading && <Spinner />}
-      {!favorite &&  <Pagination totalResults={totalResults} />}
+      {!favorite && <Pagination totalResults={totalResults} />}
     </div>
   );
 };

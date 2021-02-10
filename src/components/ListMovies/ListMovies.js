@@ -12,7 +12,7 @@ const ListMovies = () => {
   const dispatch = useDispatch({});
   const favorite = useSelector((state) => state.app.favorite);
   const myFavoritMovies = useSelector((state) => state.movies.myFavoritMovies);
-  const movies = useSelector(state => state.movies.fetchMovies.Search)
+  const movies = useSelector((state) => state.movies.fetchMovies.Search);
   const movList = favorite ? myFavoritMovies : movies;
 
   const onChangeMyFavoritMovies = (e) => {
