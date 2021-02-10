@@ -11,7 +11,7 @@ import {
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
 } from "./actionTypes";
-import ServiceApi from "../../components/Api/ServiceApi";
+import ServiceApi from "../../Api/ServiceApi";
 
 export const addFavoriteMovies = (value) => {
   return {
