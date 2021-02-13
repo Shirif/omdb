@@ -9,3 +9,4 @@ export const FAVORITE_TOGGLE = "FAVORITE_TOGGLE";
 export const SEARCH_DATA = "SEARCH_DATA";
 export const SET_PAGE_SEARCH_DATA = "SET_PAGE_SEARCH_DATA";
 export const SHOW_ALERT = "SHOW_ALERT";
+export const START_PAGE = "START_PAGE";

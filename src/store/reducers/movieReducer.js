@@ -7,6 +7,7 @@ import {
   SEARCH_DATA,
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
+  START_PAGE,
 } from "../actionCreators/actionTypes";
 import initialState from "../initialState";
 
@@ -29,6 +30,8 @@ export const movieReducer = (state = initialState.movieValue, action) => {
       return { ...state, searchData: { ...state.searchData, page: action.payload } };
     case SHOW_ALERT:
       return { ...state, fetchMovies: { ...state.fetchMovies, Error: action.payload } };
+    case START_PAGE:
+      return {...state,  fetchMovies: initialState.movieValue.fetchMovies};
 
     default:
       return state;

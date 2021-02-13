@@ -10,7 +10,6 @@
   border: none;
 }
 
-
 @media (max-width: 40em) {
   form {
     order: +1;
@@ -31,15 +30,20 @@ input {
   background-color: #d3d3d3;
 }
 
-
 input::content {
   color: #f00;
 }
 
 .nav h1 {
+  cursor: pointer;
   font-weight: 300;
   margin: 0;
   padding: 0 10px;
+}
+
+.nav h1:hover {
+  color: #3fff05;
+  background-color: #242424;
 }
 
 .favorite-button {

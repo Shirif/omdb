@@ -18,7 +18,18 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />}
+      {/* {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />} */}
+      {changeMovie || movies.Error ? (
+        !favorite ? (
+          <Description changeMovie={changeMovie} />
+        ) : (
+          <ListMovies />
+        )
+      ) : changeMovie ? (
+        <Description changeMovie={changeMovie} />
+      ) : (
+        <ListMovies />
+      )}
       {loading && <Spinner />}
       {!favorite && <Pagination totalResults={totalResults} />}
     </div>

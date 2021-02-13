@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, favoriteToggle, searchData, noChangeMovie } from "../../store/actionCreators/action";
+import { fetchMovies, favoriteToggle, searchData, noChangeMovie, startPage } from "../../store/actionCreators/action";
 
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,16 +28,20 @@ const NavBar = () => {
     setInputData(initialState);
   };
 
+  const showStartPage = () => {
+    if (favorite) dispatch(favoriteToggle());
+    dispatch(startPage());
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(fetchMovies(inputData));
     dispatch(searchData(inputData));
-    //setInputData(initialState);
   };
 
   return (
     <div className="nav">
-      <h1>OMDb</h1>
+      <h1 onClick={showStartPage}>OMDb</h1>
       {!favorite && (
         <form onSubmit={submitHandler}>
           <div className="search">
@@ -56,14 +60,7 @@ const NavBar = () => {
         </form>
       )}
       <div>
-        <button
-          onClick={() => {
-            dispatch(favoriteToggle());
-            dispatch(noChangeMovie());
-          }}
-          type="button"
-          className="favorite-button"
-        >
+        <button onClick={() => dispatch(favoriteToggle())} type="button" className="favorite-button">
           Favorite
         </button>
       </div>

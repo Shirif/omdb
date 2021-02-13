@@ -10,6 +10,7 @@ import {
   SEARCH_DATA,
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
+  START_PAGE,
 } from "./actionTypes";
 import ServiceApi from "../../Api/ServiceApi";
 
@@ -97,3 +98,9 @@ export const showAlert = (value) => {
     payload: value,
   };
 };
+
+export const startPage = () => {
+  return {
+    type: START_PAGE,
+  }
+}
