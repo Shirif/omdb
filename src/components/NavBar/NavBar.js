@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, favoriteToggle, searchData } from "../../store/actionCreators/action";
+import { fetchMovies, favoriteToggle, searchData, noChangeMovie } from "../../store/actionCreators/action";
 
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,40 +24,30 @@ const NavBar = () => {
       };
     });
   };
+  const clearInput = () => {
+    setInputData(initialState);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(fetchMovies(inputData));
     dispatch(searchData(inputData));
-    setInputData(initialState);
+    //setInputData(initialState);
   };
 
   return (
     <div className="nav">
       <h1>OMDb</h1>
-      <div>
-        <button onClick={() => dispatch(favoriteToggle())} type="button" className="favorite-button">
-          Favorite
-        </button>
-      </div>
       {!favorite && (
         <form onSubmit={submitHandler}>
           <div className="search">
             <input
               onChange={onChangeHandler}
               type="text"
-              name="year"
-              value={inputData.year}
-              size="1"
-              placeholder="Year"
-            ></input>
-            <input
-              onChange={onChangeHandler}
-              type="text"
               name="title"
               value={inputData.title}
-              size="12"
               placeholder="Title"
+              onFocus={clearInput}
             ></input>
             <button type="submit">
               <FontAwesomeIcon className="search-icon" size="lg" icon={faSearch} />
@@ -65,6 +55,18 @@ const NavBar = () => {
           </div>
         </form>
       )}
+      <div>
+        <button
+          onClick={() => {
+            dispatch(favoriteToggle());
+            dispatch(noChangeMovie());
+          }}
+          type="button"
+          className="favorite-button"
+        >
+          Favorite
+        </button>
+      </div>
     </div>
   );
 };

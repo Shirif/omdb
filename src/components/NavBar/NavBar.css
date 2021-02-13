@@ -10,19 +10,30 @@
   border: none;
 }
 
-@media (min-width: 351px) {
-  .nav button,
+
+@media (max-width: 40em) {
+  form {
+    order: +1;
+    margin-left: auto;
+    margin-right: auto;
+  }
   input {
-    border: none;
-    font-size: 0.9em;
+    width: 60vw;
   }
 }
-@media (max-width: 350px) {
-  .nav button,
-  input {
-    border: none;
-    font-size: 0.82em;
-  }
+
+form,
+.nav button,
+input {
+  border: none;
+  outline: none;
+  font-size: 0.9em;
+  background-color: #d3d3d3;
+}
+
+
+input::content {
+  color: #f00;
 }
 
 .nav h1 {
@@ -33,28 +44,16 @@
 
 .favorite-button {
   cursor: pointer;
-  background-color: #304234;
   margin: 5px;
-  color: #d3d3d3;
   transition: background-color 0.4s;
 }
 
 .favorite-button:hover {
-  color: #000000;
   background-color: #3fff05;
-}
-
-.search {
-  padding-right: 10px;
-}
-
-.search input {
-  margin: 5px;
-  background-color: #d3d3d3;
 }
 
 .search button {
   cursor: pointer;
-  background-color: #000000;
-  color: #d3d3d3;
+  padding: 2px;
+  margin-left: 5px;
 }
