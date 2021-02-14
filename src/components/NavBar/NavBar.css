@@ -9,7 +9,6 @@
   box-shadow: 0px 10px 20px 5px #000000;
   border: none;
 }
-
 @media (max-width: 40em) {
   form {
     order: +1;
@@ -20,43 +19,37 @@
     width: 60vw;
   }
 }
-
-form, button,
+form,
+button,
 input {
   border: none;
   outline: none;
   font-size: 0.9em;
   background-color: #d3d3d3;
 }
-
 .nav h1 {
   cursor: pointer;
   font-weight: 300;
   margin: 0;
   padding: 0 10px;
 }
-
 .nav h1:hover {
   color: #3fff05;
   background-color: #242424;
 }
-
 .favorite-button {
   cursor: pointer;
   margin: 5px;
   transition: background-color 0.4s;
 }
-
 .favorite-button:hover {
   background-color: #3fff05;
 }
-
 .search button {
   cursor: pointer;
   padding: 2px;
   margin-left: 5px;
 }
-
 button.active {
   background-color: #3fff05;
 }

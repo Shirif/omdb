@@ -8,14 +8,9 @@ import { faWindowClose as close } from "@fortawesome/free-regular-svg-icons";
 
 const Description = ({ changeMovie }) => {
   const dispatch = useDispatch({});
-
   const movies = useSelector((state) => state.movies.fetchMovies);
   const favorite = useSelector((state) => state.app.favorite);
-
-  if (movies.Error && !favorite) {
-    dispatch(noChangeMovie());
-  }
-
+  if (movies.Error && !favorite) dispatch(noChangeMovie());
   const elementTitle = movies.Error ? <h1>{movies.Error}</h1> : <h1>{changeMovie.Title}</h1>;
   const elementDiscription = changeMovie
     ? Object.keys(changeMovie).map((mov) => {
@@ -57,7 +52,6 @@ const Description = ({ changeMovie }) => {
       )}
     </div>
   );
-  // }
 };
 
 export default Description;

@@ -5,7 +5,6 @@
   flex-wrap: wrap;
   padding: 0;
 }
-
 img {
   vertical-align: bottom;
   width: 160px;
@@ -13,13 +12,11 @@ img {
   background-position: center;
   background-size: contain;
 }
-
 .list-movies p {
   font-size: 0.55em;
   margin: 0;
   color: #d3d3d3;
 }
-
 .list-element {
   text-align: center;
   box-shadow: 0 0 25px 15px #3d3d3dd5;
@@ -29,7 +26,6 @@ img {
 .list-element:hover {
   box-shadow: 0 0 25px 15px #95da95d5;
 }
-
 .title-element {
   display: flex;
   flex-direction: column;
@@ -39,7 +35,6 @@ img {
   height: 80px;
   position: relative;
 }
-
 .like-icon {
   position: absolute;
   color: #ffffffa2;

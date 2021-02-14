@@ -18,7 +18,6 @@ const App = () => {
   return (
     <div className="App">
       <NavBar />
-      {/* {changeMovie || movies.Error ? <Description changeMovie={changeMovie} /> : <ListMovies />} */}
       {changeMovie && <Description changeMovie={changeMovie} />}
       {!favorite && movies.Error ? <Description changeMovie={changeMovie} /> : !changeMovie && <ListMovies />}
       {loading && <Spinner />}

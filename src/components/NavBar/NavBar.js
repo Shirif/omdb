@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMovies, favoriteToggle, searchData, noChangeMovie, startPage } from "../../store/actionCreators/action";
-
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +14,6 @@ const NavBar = () => {
   const [inputData, setInputData] = useState(initialState);
   const dispatch = useDispatch();
   const favorite = useSelector((state) => state.app.favorite);
-
   const onChangeHandler = (e) => {
     setInputData((prev) => {
       return {
@@ -27,18 +25,15 @@ const NavBar = () => {
   const clearInput = () => {
     setInputData(initialState);
   };
-
   const showStartPage = () => {
     if (favorite) dispatch(favoriteToggle());
     dispatch(startPage());
   };
-
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(fetchMovies(inputData));
     dispatch(searchData(inputData));
   };
-
   return (
     <div className="nav">
       <h1 onClick={showStartPage}>OMDb</h1>

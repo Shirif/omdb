@@ -4,7 +4,6 @@ import { faCheckSquare as like } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare as dislike } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteMovies, removeFavoriteMovies, changeMovie } from "../../store/actionCreators/action";
-
 import "./ListMovies.css";
 import noImg from "../Pictures/no_image_available.png";
 
@@ -14,7 +13,6 @@ const ListMovies = () => {
   const myFavoritMovies = useSelector((state) => state.movies.myFavoritMovies);
   const movies = useSelector((state) => state.movies.fetchMovies.Search);
   const movList = favorite ? myFavoritMovies : movies;
-
   const onChangeMyFavoritMovies = (e) => {
     let id;
     const elem = e.target.parentNode;
@@ -35,7 +33,6 @@ const ListMovies = () => {
       dispatch(changeMovie(elem.id));
     }
   };
-
   const elementDiscription = movList.map((mov) => {
     return (
       <div key={mov.imdbID} id={mov.imdbID} onClick={onChangeMyFavoritMovies} className="list-element">
@@ -52,9 +49,7 @@ const ListMovies = () => {
       </div>
     );
   });
-
   return <div className="list-movies">{elementDiscription}</div>;
-  // }
 };
 
 export default ListMovies;
