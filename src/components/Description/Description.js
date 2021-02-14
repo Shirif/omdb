@@ -10,8 +10,9 @@ const Description = ({ changeMovie }) => {
   const dispatch = useDispatch({});
 
   const movies = useSelector((state) => state.movies.fetchMovies);
+  const favorite = useSelector((state) => state.app.favorite);
 
-  if (movies.Error) {
+  if (movies.Error && !favorite) {
     dispatch(noChangeMovie());
   }
 

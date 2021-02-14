@@ -21,17 +21,12 @@
   }
 }
 
-form,
-.nav button,
+form, button,
 input {
   border: none;
   outline: none;
   font-size: 0.9em;
   background-color: #d3d3d3;
-}
-
-input::content {
-  color: #f00;
 }
 
 .nav h1 {
@@ -60,4 +55,8 @@ input::content {
   cursor: pointer;
   padding: 2px;
   margin-left: 5px;
+}
+
+button.active {
+  background-color: #3fff05;
 }

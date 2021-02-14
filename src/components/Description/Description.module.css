@@ -7,13 +7,14 @@
   padding: 5px;
   color: #d3d3d3;
   font-weight: 300;
-  margin: 90px 0;
-  box-shadow: 0 -50px 20px #3d3d3dd5, 0 50px 20px #3d3d3dd5;
+  margin: 20px 0;
+  box-shadow: 0 -20px 20px #3d3d3dd5, 0 20px 20px #3d3d3dd5;
 }
 .description {
   position: relative;
   font-size: 0.8em;
   padding: 25px 0;
+  width: 600px;
 }
 .description h1 {
   margin: 0;
@@ -42,6 +43,6 @@
   left: 4px;
   top: 4px;
 }
-.close-icon:hover {
+.close:hover {
   color: #3fff05;
 }

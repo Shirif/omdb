@@ -60,7 +60,14 @@ const NavBar = () => {
         </form>
       )}
       <div>
-        <button onClick={() => dispatch(favoriteToggle())} type="button" className="favorite-button">
+        <button
+          onClick={() => {
+            dispatch(favoriteToggle());
+            dispatch(noChangeMovie());
+          }}
+          type="button"
+          className={favorite ? "favorite-button active" : "favorite-button"}
+        >
           Favorite
         </button>
       </div>
