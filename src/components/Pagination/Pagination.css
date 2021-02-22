@@ -28,7 +28,7 @@
   color: #000000;
 }
 
-.pagination li:hover:not(.active) {
+.pagination li.page-select:hover:not(.active) {
   background-color: #3fff05;
   color: #000000;
 }

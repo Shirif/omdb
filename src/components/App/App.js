@@ -21,7 +21,7 @@ const App = () => {
       {changeMovie && <Description changeMovie={changeMovie} />}
       {!favorite && movies.Error ? <Description changeMovie={changeMovie} /> : !changeMovie && <ListMovies />}
       {loading && <Spinner />}
-      {!favorite && <Pagination totalResults={totalResults} />}
+      {!favorite && totalResults && <Pagination totalResults={totalResults} />}
     </div>
   );
 };

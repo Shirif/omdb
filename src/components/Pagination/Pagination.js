@@ -9,10 +9,10 @@ const Pagination = ({ totalResults }) => {
   const searchData = useSelector((state) => state.movies.searchData);
   const currentPage = Number(useSelector((state) => state.movies.searchData.page));
   const pageSize = 10;
-
   const pagesCount = Math.ceil(+totalResults / pageSize);
   const allPages = [];
   const pageRangeDisplayed = 5;
+  
   for (let i = 1; i <= pagesCount; i++) {
     allPages.push(i);
   }
@@ -41,42 +41,66 @@ const Pagination = ({ totalResults }) => {
 
   const elementsPages = allPages
     .slice(
-      currentPage < pageRangeDisplayed
-        ? 0
-        : currentPage < allPages.length - 3
-        ? currentPage - pageRangeDisplayed + 3
-        : allPages.length - pageRangeDisplayed,
-      currentPage < pageRangeDisplayed
-        ? pageRangeDisplayed
-        : currentPage < allPages.length - 3
-        ? currentPage + 1
-        : allPages.length
+      pagesCount !== 7
+        ? currentPage < pageRangeDisplayed
+          ? 0
+          : currentPage < allPages.length - 3
+          ? currentPage - pageRangeDisplayed + 3
+          : allPages.length - pageRangeDisplayed
+        : 0,
+      pagesCount !== 7
+        ? currentPage < pageRangeDisplayed
+          ? pageRangeDisplayed
+          : currentPage < allPages.length - 3
+          ? currentPage + 1
+          : allPages.length
+        : 7
     )
     .map((p) => {
       return (
-        <li className={currentPage === p ? "active" : ""} key={p} onClick={setCurrentPage}>
+        <li className={currentPage === p ? "active page-select" : "page-select"} key={p} onClick={setCurrentPage}>
           {p}
         </li>
       );
     });
 
   const ellipsis = <li>&#8230;</li>;
+
   const startPage =
-    currentPage > 4 ? (
-      <React.Fragment>
-        <li onClick={setCurrentPage}>{allPages[0]}</li>
-        {ellipsis}
-      </React.Fragment>
+    pagesCount !== 7 ? (
+      currentPage > 4 ? (
+        <React.Fragment>
+          <li className="page-select" onClick={setCurrentPage}>
+            {allPages[0]}
+          </li>
+          {ellipsis}
+        </React.Fragment>
+      ) : null
     ) : null;
+
   const lastPage =
-    currentPage <= allPages.length - 4 ? (
-      <React.Fragment>
-        {ellipsis}
-        <li onClick={setCurrentPage}>{allPages.length}</li>
-      </React.Fragment>
+    pagesCount !== 7 ? (
+      currentPage <= allPages.length - 4 ? (
+        <React.Fragment>
+          {ellipsis}
+          <li className="page-select" onClick={setCurrentPage}>
+            {allPages.length}
+          </li>
+        </React.Fragment>
+      ) : null
     ) : null;
-  const prev = <li onClick={prevPage}>&#8249;</li>;
-  const next = <li onClick={nextPage}>&#8250;</li>;
+
+  const prev = (
+    <li className="page-select" onClick={prevPage}>
+      &#8249;
+    </li>
+  );
+
+  const next = (
+    <li className="page-select" onClick={nextPage}>
+      &#8250;
+    </li>
+  );
 
   return (
     <ul className="pagination">

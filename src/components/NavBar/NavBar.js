@@ -28,6 +28,7 @@ const NavBar = () => {
   const showStartPage = () => {
     if (favorite) dispatch(favoriteToggle());
     dispatch(startPage());
+    clearInput();
   };
   const submitHandler = (e) => {
     e.preventDefault();
@@ -46,7 +47,7 @@ const NavBar = () => {
               name="title"
               value={inputData.title}
               placeholder="Title"
-              onFocus={clearInput}
+              // onFocus={clearInput}
             ></input>
             <button type="submit">
               <FontAwesomeIcon className="search-icon" size="lg" icon={faSearch} />
