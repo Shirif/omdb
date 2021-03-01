@@ -6,7 +6,7 @@ import Spinner from "../Spinner";
 import ListMovies from "../ListMovies";
 import Pagination from "../Pagination";
 
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
   const movies = useSelector((state) => state.movies.fetchMovies);

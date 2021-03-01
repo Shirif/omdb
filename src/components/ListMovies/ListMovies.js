@@ -4,7 +4,7 @@ import { faCheckSquare as like } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare as dislike } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { addFavoriteMovies, removeFavoriteMovies, changeMovie } from "../../store/actionCreators/action";
-import "./ListMovies.css";
+import "./ListMovies.scss";
 import noImg from "../Pictures/no_image_available.png";
 
 const ListMovies = () => {

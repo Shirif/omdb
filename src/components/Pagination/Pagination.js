@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPageSearchData, fetchMovies } from "../../store/actionCreators/action";
 
-import "./Pagination.css";
+import "./Pagination.scss";
 
 const Pagination = ({ totalResults }) => {
   const dispatch = useDispatch();
