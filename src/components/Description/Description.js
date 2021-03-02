@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { noChangeMovie } from "../../store/actionCreators/action";
-import noImg from "../Pictures/no_image_available.png";
+import noImg from "../../Images/no_image_available.png";
 import "./Description.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose as close } from "@fortawesome/free-regular-svg-icons";

@@ -4,34 +4,34 @@
   justify-content: center;
   flex-wrap: wrap;
   background-color: #000000;
-  padding: 5px;
+  padding: 0.3em;
   color: #d3d3d3;
   font-weight: 300;
-  margin: 20px 0;
+  margin: 0.6em 0;
   box-shadow: 0 -20px 20px #3d3d3dd5, 0 20px 20px #3d3d3dd5;
 }
 
 .description {
   position: relative;
   font-size: 0.8em;
-  padding: 25px 0;
+  padding: 1.6em 0;
   width: 600px;
-}
 
-.description h1 {
-  margin: 0;
-  font-size: 3em;
-  font-weight: 300;
-  text-align: center;
-}
+  h1 {
+    margin: 0;
+    font-size: 3em;
+    font-weight: 300;
+    text-align: center;
+  }
 
-.description p {
-  padding-left: 5px;
-  margin: 0.4em;
-}
+  p {
+    padding-left: 0.4em;
+    margin: 0.4em;
+  }
 
-.description b {
-  color: #757575;
+  b {
+    color: #757575;
+  }
 }
 
 .poster img {
