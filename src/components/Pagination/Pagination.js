@@ -1,18 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPageSearchData, fetchMovies } from "../../store/actionCreators/action";
+import {
+  setPageSearchData,
+  fetchMovies,
+} from "../../store/actionCreators/action";
 
 import "./Pagination.scss";
 
 const Pagination = ({ totalResults }) => {
   const dispatch = useDispatch();
   const searchData = useSelector((state) => state.movies.searchData);
-  const currentPage = Number(useSelector((state) => state.movies.searchData.page));
+  const currentPage = Number(
+    useSelector((state) => state.movies.searchData.page)
+  );
   const pageSize = 10;
   const pagesCount = Math.ceil(+totalResults / pageSize);
   const allPages = [];
   const pageRangeDisplayed = 5;
-  
+
   for (let i = 1; i <= pagesCount; i++) {
     allPages.push(i);
   }
@@ -20,14 +25,18 @@ const Pagination = ({ totalResults }) => {
   const setCurrentPage = (e) => {
     const page = e.target.innerText;
     dispatch(setPageSearchData(page));
-    dispatch(fetchMovies({ title: searchData.title, year: searchData.year, page }));
+    dispatch(
+      fetchMovies({ title: searchData.title, year: searchData.year, page })
+    );
   };
 
   const nextPage = () => {
     const page = +searchData.page;
     if (page < pagesCount) {
       dispatch(setPageSearchData(page + 1));
-      dispatch(fetchMovies({ title: searchData.title, year: searchData.year, page }));
+      dispatch(
+        fetchMovies({ title: searchData.title, year: searchData.year, page })
+      );
     }
   };
 
@@ -35,7 +44,9 @@ const Pagination = ({ totalResults }) => {
     const page = +searchData.page;
     if (page > 1) {
       dispatch(setPageSearchData(page - 1));
-      dispatch(fetchMovies({ title: searchData.title, year: searchData.year, page }));
+      dispatch(
+        fetchMovies({ title: searchData.title, year: searchData.year, page })
+      );
     }
   };
 
@@ -58,7 +69,11 @@ const Pagination = ({ totalResults }) => {
     )
     .map((p) => {
       return (
-        <li className={currentPage === p ? "active page-select" : "page-select"} key={p} onClick={setCurrentPage}>
+        <li
+          className={currentPage === p ? "active page-select" : "page-select"}
+          key={p}
+          onClick={setCurrentPage}
+        >
           {p}
         </li>
       );

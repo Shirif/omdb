@@ -39,14 +39,20 @@ describe("should render App components", () => {
 
   it("should render ListMovies component", () => {
     useSelector.mockImplementation((callback) => {
-      return callback({ ...mockAppState, movies: { ...mockAppState.movies, fetchMovies: {} } });
+      return callback({
+        ...mockAppState,
+        movies: { ...mockAppState.movies, fetchMovies: {} },
+      });
     });
     component = setUp();
     expect(component).toMatchSnapshot();
   });
   it("should render Spinner component", () => {
     useSelector.mockImplementation((callback) => {
-      return callback({ ...mockAppState, app: { ...mockAppState.app, loading: true } });
+      return callback({
+        ...mockAppState,
+        app: { ...mockAppState.app, loading: true },
+      });
     });
     component = setUp();
     const wrapper = component.find("Spinner");

@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckSquare as like } from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare as dislike } from "@fortawesome/free-regular-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addFavoriteMovies, removeFavoriteMovies, changeMovie } from "../../store/actionCreators/action";
+import {
+  addFavoriteMovies,
+  removeFavoriteMovies,
+  changeMovie,
+} from "../../store/actionCreators/action";
 import "./ListMovies.scss";
 import noImg from "../../Images/no_image_available.png";
 
@@ -35,7 +39,12 @@ const ListMovies = () => {
   };
   const elementDiscription = movList.map((mov) => {
     return (
-      <div key={mov.imdbID} id={mov.imdbID} onClick={onChangeMyFavoritMovies} className="list-element">
+      <div
+        key={mov.imdbID}
+        id={mov.imdbID}
+        onClick={onChangeMyFavoritMovies}
+        className="list-element"
+      >
         <div className="title-element">
           <p>{mov.Title}</p>
           <p>{mov.Year}</p>

@@ -11,7 +11,11 @@ const Description = ({ changeMovie }) => {
   const movies = useSelector((state) => state.movies.fetchMovies);
   const favorite = useSelector((state) => state.app.favorite);
   if (movies.Error && !favorite) dispatch(noChangeMovie());
-  const elementTitle = movies.Error ? <h1>{movies.Error}</h1> : <h1>{changeMovie.Title}</h1>;
+  const elementTitle = movies.Error ? (
+    <h1>{movies.Error}</h1>
+  ) : (
+    <h1>{changeMovie.Title}</h1>
+  );
   const elementDiscription = changeMovie
     ? Object.keys(changeMovie).map((mov) => {
         if (
@@ -40,14 +44,22 @@ const Description = ({ changeMovie }) => {
     <div className="container">
       <div className="description">
         {changeMovie.Year && (
-          <FontAwesomeIcon onClick={() => dispatch(noChangeMovie())} className="close" size="2x" icon={close} />
+          <FontAwesomeIcon
+            onClick={() => dispatch(noChangeMovie())}
+            className="close"
+            size="2x"
+            icon={close}
+          />
         )}
         {elementTitle}
         {elementDiscription}
       </div>
       {changeMovie.Poster && (
         <div className="poster">
-          <img src={changeMovie.Poster !== "N/A" ? changeMovie.Poster : noImg} alt=""></img>
+          <img
+            src={changeMovie.Poster !== "N/A" ? changeMovie.Poster : noImg}
+            alt=""
+          ></img>
         </div>
       )}
     </div>

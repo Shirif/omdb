@@ -102,5 +102,5 @@ export const showAlert = (value) => {
 export const startPage = () => {
   return {
     type: START_PAGE,
-  }
-}
+  };
+};

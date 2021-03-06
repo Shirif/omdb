@@ -1,4 +1,8 @@
-import { SHOW_LOADER, HIDE_LOADER, FAVORITE_TOGGLE } from "../actionCreators/actionTypes";
+import {
+  SHOW_LOADER,
+  HIDE_LOADER,
+  FAVORITE_TOGGLE,
+} from "../actionCreators/actionTypes";
 import initialState from "../initialState";
 
 export const appReducer = (state = initialState.appValue, action) => {
