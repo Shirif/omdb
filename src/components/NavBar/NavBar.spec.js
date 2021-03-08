@@ -1,12 +1,12 @@
-import * as reactRedux from "react-redux";
-import React from "react";
-import NavBar from "./NavBar";
+import * as reactRedux from 'react-redux';
+import React from 'react';
+import NavBar from './NavBar';
 
 const setUp = () => shallow(<NavBar />);
 
-describe("should render NavBar component", () => {
-  const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
-  const useDispatchMock = jest.spyOn(reactRedux, "useDispatch");
+describe('should render NavBar component', () => {
+  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
   let component;
   const dummyDispatch = jest.fn();
   useDispatchMock.mockReturnValue(dummyDispatch);
@@ -20,47 +20,47 @@ describe("should render NavBar component", () => {
     jest.clearAllMocks();
   });
 
-  it("should contain .nav", () => {
+  it('should contain .nav', () => {
     useSelectorMock.mockReturnValue(false);
     component = setUp();
-    const wrapper = component.find(".nav");
+    const wrapper = component.find('.nav');
     expect(wrapper.length).toBe(1);
   });
 
-  it("should contain input fields", () => {
+  it('should contain input fields', () => {
     useSelectorMock.mockReturnValue(false);
     component = setUp();
-    const wrapper = component.find("input");
-    expect(wrapper.length).toBe(2);
+    const wrapper = component.find('input');
+    expect(wrapper.length).toBe(1);
   });
 
-  it("calls onchange", () => {
+  it('calls onchange', () => {
     useSelectorMock.mockReturnValue(false);
     component = setUp();
-    const wrapper = component.find("input").first();
-    wrapper.simulate("change", {
+    const wrapper = component.find('input').first();
+    wrapper.simulate('change', {
       target: {
-        name: "year",
-        value: "2000",
-      },
+        name: 'year',
+        value: '2000'
+      }
     });
     expect(component).toMatchSnapshot();
   });
 
-  it("calls click submit", () => {
+  it('calls click submit', () => {
     useSelectorMock.mockReturnValue(false);
     component = setUp();
-    const wrapper = component.find("form");
-    wrapper.simulate("submit", {
-      preventDefault: () => {},
+    const wrapper = component.find('form');
+    wrapper.simulate('submit', {
+      preventDefault: () => {}
     });
     expect(dummyDispatch).toHaveBeenCalled();
   });
 
-  it("calls click FAVORITE button", () => {
+  it('calls click FAVORITE button', () => {
     component = setUp();
-    const wrapper = component.find(".favorite-button");
-    wrapper.simulate("click");
+    const wrapper = component.find('.favorite-button');
+    wrapper.simulate('click');
     expect(dummyDispatch).toHaveBeenCalled();
   });
 });

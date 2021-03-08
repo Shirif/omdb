@@ -1,15 +1,11 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckSquare as like } from "@fortawesome/free-solid-svg-icons";
-import { faCheckSquare as dislike } from "@fortawesome/free-regular-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  addFavoriteMovies,
-  removeFavoriteMovies,
-  changeMovie,
-} from "../../store/actionCreators/action";
-import "./ListMovies.scss";
-import noImg from "../../Images/no_image_available.png";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckSquare as like } from '@fortawesome/free-solid-svg-icons';
+import { faCheckSquare as dislike } from '@fortawesome/free-regular-svg-icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavoriteMovies, removeFavoriteMovies, changeMovie } from '../../store/actionCreators/action';
+import './ListMovies.scss';
+import noImg from '../../Images/no_image_available.png';
 
 const ListMovies = () => {
   const dispatch = useDispatch({});
@@ -20,9 +16,9 @@ const ListMovies = () => {
   const onChangeMyFavoritMovies = (e) => {
     let id;
     const elem = e.target.parentNode;
-    if (elem.parentNode.className === "list-element") {
+    if (elem.parentNode.className === 'list-element') {
       id = elem.parentNode.id;
-    } else if (elem.parentNode.parentNode.className === "list-element") {
+    } else if (elem.parentNode.parentNode.className === 'list-element') {
       id = elem.parentNode.parentNode.id;
     }
     if (id) {
@@ -39,26 +35,21 @@ const ListMovies = () => {
   };
   const elementDiscription = movList.map((mov) => {
     return (
-      <div
-        key={mov.imdbID}
-        id={mov.imdbID}
-        onClick={onChangeMyFavoritMovies}
-        className="list-element"
-      >
-        <div className="title-element">
+      <div key={mov.imdbID} id={mov.imdbID} onClick={onChangeMyFavoritMovies} className='list-element'>
+        <div className='title-element'>
           <p>{mov.Title}</p>
           <p>{mov.Year}</p>
           {myFavoritMovies.find((item) => item.imdbID === mov.imdbID) ? (
-            <FontAwesomeIcon className="like-icon" size="2x" icon={like} />
+            <FontAwesomeIcon className='like-icon' size='2x' icon={like} />
           ) : (
-            <FontAwesomeIcon className="like-icon" size="2x" icon={dislike} />
+            <FontAwesomeIcon className='like-icon' size='2x' icon={dislike} />
           )}
         </div>
-        <img src={mov.Poster !== "N/A" ? mov.Poster : noImg} alt="img"></img>
+        <img src={mov.Poster !== 'N/A' ? mov.Poster : noImg} alt='img'></img>
       </div>
     );
   });
-  return <div className="list-movies">{elementDiscription}</div>;
+  return <div className='list-movies'>{elementDiscription}</div>;
 };
 
 export default ListMovies;

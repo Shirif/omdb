@@ -4,18 +4,11 @@ exports[`should render NavBar component calls onchange 1`] = `
 <div
   className="nav"
 >
-  <h1>
+  <h1
+    onClick={[Function]}
+  >
     OMDb
   </h1>
-  <div>
-    <button
-      className="favorite-button"
-      onClick={[Function]}
-      type="button"
-    >
-      Favorite
-    </button>
-  </div>
   <form
     onSubmit={[Function]}
   >
@@ -23,18 +16,9 @@ exports[`should render NavBar component calls onchange 1`] = `
       className="search"
     >
       <input
-        name="year"
-        onChange={[Function]}
-        placeholder="Year"
-        size="1"
-        type="text"
-        value="2000"
-      />
-      <input
         name="title"
         onChange={[Function]}
         placeholder="Title"
-        size="12"
         type="text"
         value=""
       />
@@ -75,5 +59,14 @@ exports[`should render NavBar component calls onchange 1`] = `
       </button>
     </div>
   </form>
+  <div>
+    <button
+      className="favorite-button"
+      onClick={[Function]}
+      type="button"
+    >
+      Favorite
+    </button>
+  </div>
 </div>
 `;

@@ -10,33 +10,33 @@ import {
   SEARCH_DATA,
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
-  START_PAGE,
-} from "./actionTypes";
-import ServiceApi from "../../Api/ServiceApi";
+  START_PAGE
+} from './actionTypes';
+import ServiceApi from '../../Api/ServiceApi';
 
 export const addFavoriteMovies = (value) => {
   return {
     type: ADD_FAVORITE_MOVIES,
-    payload: value,
+    payload: value
   };
 };
 
 export const removeFavoriteMovies = (value) => {
   return {
     type: REMOVE_FAVORITE_MOVIES,
-    payload: value,
+    payload: value
   };
 };
 
 export const showLoader = () => {
   return {
-    type: SHOW_LOADER,
+    type: SHOW_LOADER
   };
 };
 
 export const hideLoader = () => {
   return {
-    type: HIDE_LOADER,
+    type: HIDE_LOADER
   };
 };
 
@@ -48,7 +48,7 @@ export const changeMovie = (id) => {
       dispatch({ type: CHANGE_MOVIE, payload: movie });
       dispatch(hideLoader());
     } catch (error) {
-      dispatch(showAlert("Failed to fetch"));
+      dispatch(showAlert('Failed to fetch'));
       dispatch(hideLoader());
     }
   };
@@ -56,7 +56,7 @@ export const changeMovie = (id) => {
 
 export const noChangeMovie = () => {
   return {
-    type: NO_CHANGE_MOVIE,
+    type: NO_CHANGE_MOVIE
   };
 };
 
@@ -68,7 +68,7 @@ export const fetchMovies = ({ title, year, page }) => {
       dispatch({ type: FETCH_MOVIES, payload: movies });
       dispatch(hideLoader());
     } catch (error) {
-      dispatch(showAlert("Failed to fetch"));
+      dispatch(showAlert('Failed to fetch'));
       console.log(error);
       dispatch(hideLoader());
     }
@@ -77,30 +77,30 @@ export const fetchMovies = ({ title, year, page }) => {
 
 export const favoriteToggle = () => {
   return {
-    type: FAVORITE_TOGGLE,
+    type: FAVORITE_TOGGLE
   };
 };
 export const searchData = (value) => {
   return {
     type: SEARCH_DATA,
-    payload: value,
+    payload: value
   };
 };
 export const setPageSearchData = (value) => {
   return {
     type: SET_PAGE_SEARCH_DATA,
-    payload: value,
+    payload: value
   };
 };
 export const showAlert = (value) => {
   return {
     type: SHOW_ALERT,
-    payload: value,
+    payload: value
   };
 };
 
 export const startPage = () => {
   return {
-    type: START_PAGE,
+    type: START_PAGE
   };
 };

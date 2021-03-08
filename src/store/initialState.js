@@ -2,17 +2,17 @@ const initialState = {
   movieValue: {
     myFavoritMovies: [],
     changeMovie: false,
-    fetchMovies: { Error: "Search movie!" },
+    fetchMovies: { Error: 'Search movie!' },
     searchData: {
-      title: "",
-      year: "",
-      page: "",
-    },
+      title: '',
+      year: '',
+      page: ''
+    }
   },
   appValue: {
     loading: false,
-    favorite: false,
-  },
+    favorite: false
+  }
 };
 
 export default initialState;

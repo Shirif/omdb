@@ -6,7 +6,6 @@ exports[`should render App components should render ListMovies component 1`] = `
 >
   <NavBar />
   <ListMovies />
-  <Pagination />
 </div>
 `;
 
@@ -18,6 +17,6 @@ exports[`should render App components should render NavBar, Description, Paginat
   <Description
     changeMovie={false}
   />
-  <Pagination />
+  0
 </div>
 `;

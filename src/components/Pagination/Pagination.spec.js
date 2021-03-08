@@ -1,49 +1,58 @@
-import React from "react";
-import * as reactRedux from "react-redux";
-import Pagination from "./Pagination";
+import React from 'react';
+import * as reactRedux from 'react-redux';
+import Pagination from './Pagination';
 
-const testState = {
-  title: "test",
-  year: "2000",
-  page: "1",
+const mockAppState = {
+  movies: {
+    searchData: {
+      title: 'test',
+      year: '2000',
+      page: '1'
+    }
+  }
 };
+
 const testProps = 50;
 const setUp = () => shallow(<Pagination totalResults={testProps} />);
+let component;
 
-describe("should render Pagination component", () => {
-  const useSelectorMock = jest.spyOn(reactRedux, "useSelector");
-  const useDispatchMock = jest.spyOn(reactRedux, "useDispatch");
-  let component;
+describe('should render Pagination component', () => {
+  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
 
-  it("calls from the click of a button", () => {
-    useSelectorMock.mockReturnValue(testState);
+  it('calls from the click of a button', () => {
+    useSelectorMock.mockReturnValue(mockAppState.movies.searchData);
     const dummyDispatch = jest.fn();
     useDispatchMock.mockReturnValue(dummyDispatch);
     expect(dummyDispatch).not.toHaveBeenCalled();
     component = setUp();
-    const wrapper = component
-      .find("li")
-      .first()
-      .simulate("click", {
+    component
+      .find('li')
+      .at(1)
+      .simulate('click', {
         target: {
-          innerText: 1,
-        },
+          innerText: 1
+        }
       });
     expect(dummyDispatch).toHaveBeenCalled();
   });
 
-  it("should contain .pagination", () => {
-    const wrapper = component.find(".pagination");
+  it('should contain .pagination', () => {
+    const wrapper = component.find('.pagination');
     expect(wrapper.length).toBe(1);
   });
 
-  it("should render pagination buttons", () => {
-    const wrapper = component.find("li");
-    expect(wrapper.length).toBe(testProps / 10);
+  it('should render pagination buttons', () => {
+    const wrapper = component.find('li');
+    expect(wrapper.length).toBe(testProps / 10 + 2);
   });
 
-  it("should render pagination active button", () => {
-    const wrapper = component.find(".active");
+  it('should render pagination active button', () => {
+    reactRedux.useSelector.mockImplementation((callback) => {
+      return callback(mockAppState);
+    });
+    component = setUp();
+    const wrapper = component.find('.active');
     expect(wrapper.length).toBe(1);
   });
 });

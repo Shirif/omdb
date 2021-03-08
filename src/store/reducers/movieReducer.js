@@ -7,9 +7,9 @@ import {
   SEARCH_DATA,
   SET_PAGE_SEARCH_DATA,
   SHOW_ALERT,
-  START_PAGE,
-} from "../actionCreators/actionTypes";
-import initialState from "../initialState";
+  START_PAGE
+} from '../actionCreators/actionTypes';
+import initialState from '../initialState';
 
 export const movieReducer = (state = initialState.movieValue, action) => {
   switch (action.type) {
@@ -17,14 +17,12 @@ export const movieReducer = (state = initialState.movieValue, action) => {
       //  return { ...state, myFavoritMovies: state.myFavoritMovies.concat([action.payload]) };
       return {
         ...state,
-        myFavoritMovies: [...state.myFavoritMovies, action.payload],
+        myFavoritMovies: [...state.myFavoritMovies, action.payload]
       };
     case REMOVE_FAVORITE_MOVIES:
       return {
         ...state,
-        myFavoritMovies: state.myFavoritMovies.filter(
-          (item) => item.imdbID !== action.payload
-        ),
+        myFavoritMovies: state.myFavoritMovies.filter((item) => item.imdbID !== action.payload)
       };
     case FETCH_MOVIES:
       return { ...state, fetchMovies: action.payload };
@@ -37,12 +35,12 @@ export const movieReducer = (state = initialState.movieValue, action) => {
     case SET_PAGE_SEARCH_DATA:
       return {
         ...state,
-        searchData: { ...state.searchData, page: action.payload },
+        searchData: { ...state.searchData, page: action.payload }
       };
     case SHOW_ALERT:
       return {
         ...state,
-        fetchMovies: { ...state.fetchMovies, Error: action.payload },
+        fetchMovies: { ...state.fetchMovies, Error: action.payload }
       };
     case START_PAGE:
       return { ...state, fetchMovies: initialState.movieValue.fetchMovies };
